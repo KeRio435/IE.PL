@@ -23,12 +23,20 @@
         }
 
         header {
-            background-color: #1c2430;
-            color: white;
-            text-align: center;
-            padding: 2rem 1rem;
-            border-bottom: 5px solid var(--accent-yellow);
-        }
+        /* Ustawienie Twojego obrazka jako tła. 
+        linear-gradient tworzy delikatną, ciemną nakładkę, by tekst był czytelny! */
+        background-image: linear-gradient(rgba(28, 36, 48, 0.7), rgba(28, 36, 48, 0.7)), url('https://vignette.wikia.nocookie.net/inazuma-eleven/images/9/9a/Raimon_School_GO.png/revision/latest?cb=20190123105310&path-prefix=fr');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    
+        color: white;
+        text-align: center;
+        /* Zwiększyłem lekko padding (z 2rem na 4rem), 
+        aby było widać więcej Twojego nowego tła */
+        padding: 4rem 1rem; 
+        border-bottom: 5px solid var(--accent-yellow);
+    }
 
         header h1 {
             margin: 0;
@@ -391,6 +399,7 @@
         }
 		/* Zmniejszenie wysokości banerów w Ciekawostkach i Spolszczeniach */
         #funfacts .hero-home,
+        #porady .hero-home,
         div[id^="trans-"] .hero-home {
         padding: 1.8rem 2rem;
         }
@@ -424,8 +433,8 @@
 <body>
 
     <header>
-        <h1>Seria Inazuma Eleven</h1>
-        <p>Przewodnik po grach piłkarskich RPG od Level-5 (NDS & 3DS)</p>
+        <h1>Inazuma Eleven PL</h1>
+        <p>Polska strona poświęcona grą z serii Inazuma Eleven RPG od Level-5 (NDS & 3DS)</p>
     </header>
 
     <nav>
@@ -433,6 +442,7 @@
             <a id="nav-home" class="main-nav-link active" onclick="switchTab('home')">Strona Główna</a>
             <a id="nav-history" class="main-nav-link" onclick="switchTab('history')">Historia Gier</a>
             <a id="nav-funfacts" class="main-nav-link" onclick="switchTab('funfacts')">Ciekawostki</a>
+			<a id="nav-porady" class="main-nav-link" onclick="switchTab('porady')">Porady</a>
             
             <!-- SEKCJA: SPOLSZCZENIA (DROPDOWN) -->
             <div class="dropdown">
@@ -525,6 +535,51 @@
                 </div>
             </div>
         </div>
+		
+		<!-- ============================================== -->
+        <!-- SEKCJA PORADY -->
+        <!-- ============================================== -->
+        <div id="porady" class="page-section">
+            <div class="hero-home">
+                <h2>Porady i Wskazówki</h2>
+                <p>Przydatne triki, taktyki meczowe i ukryte mechaniki, które pomogą Ci stworzyć niezwyciężoną drużynę!</p>
+            </div>
+            
+            <!-- SPIS TREŚCI -->
+            <div class="toc-container">
+                <h3>Spis Treści</h3>
+                <ul class="toc-list">
+                    <li><button onclick="document.getElementById('tip-1').scrollIntoView({behavior: 'smooth', block: 'center'})">Trening i rozwój statystyk</button></li>
+                    <li><button onclick="document.getElementById('tip-2').scrollIntoView({behavior: 'smooth', block: 'center'})">Werbowanie ukrytych zawodników</button></li>
+                    <li><button onclick="document.getElementById('tip-3').scrollIntoView({behavior: 'smooth', block: 'center'})">Taktyka meczowa i przewaga żywiołów</button></li>
+                </ul>
+            </div>
+
+            <div class="funfacts-list">
+                
+                <!-- Porada 1 -->
+                <div class="funfact-item" id="tip-1">
+                    <h3>1. Mapa Lasu Fuji</h3>
+                    <p class="large-text">Zrobiłem mapę lasu Fuji dla Inazumy Eleven 2 razem ze skrzynkami jakie można tam znaleźć może być też użyteczna dla IE 3 ale bierzcie pod uwagę skrzynek i sklepów to jest zrobione pod IE2.</p>
+                    <img src="Las Fuji" alt="Screen lasu Fuji" class="game-img">
+                    <!-- <img src="img/zdjecie_porada1.jpg" alt="Trening" class="game-img"> -->
+                </div>
+                
+                <!-- Porada 2 -->
+                <div class="funfact-item" id="tip-2">
+                    <h3>2. Werbowanie ukrytych zawodników</h3>
+                    <p class="large-text">Opisz najlepsze metody na rekrutację ukrytych postaci. Wiele gier z serii posiada skomplikowane systemy połączeń (Connection Map) lub maszyny z kapsułami, które warto odpowiednio wytłumaczyć.</p>
+                </div>
+                
+                <!-- Porada 3 -->
+                <div class="funfact-item" id="tip-3">
+                    <h3>3. Taktyka meczowa i przewaga żywiołów</h3>
+                    <p class="large-text">Podziel się strategiami dotyczącymi doboru formacji, oszczędzania punktów TP/FP oraz efektywnego wykorzystywania przewag żywiołów (Wiatr, Las, Ogień, Góra) przeciwko rywalom na boisku.</p>
+                </div>
+
+            </div>
+        </div>
+        <!-- ============================================== -->
 
         <!-- ============================================== -->
         <!-- SEKCJA CIEKAWOSTEK Z DUŻYM TEKSTEM I SPISEM TREŚCI -->
