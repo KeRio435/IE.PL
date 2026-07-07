@@ -1,2 +1,2 @@
 # IE.PL
-Strona Internetowa o Inazuma Eleven
+Strona Internetowa o Inazumie Eleven
