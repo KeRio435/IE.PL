@@ -9,21 +9,22 @@
             --primary-blue: #1e3799;
             --accent-yellow: #f6b93b;
             --text-dark: #2f3640;
-            --bg-light: #2f3640; /* Zmienione na kolor stopki */
-            --card-bg: #353b48;  /* Jasniejszy ciemny kolor dla kontrastu kafelków */
+            --bg-light: #2f3640; /* Główny ciemny kolor strony */
+            --card-bg: #353b48;  /* Jaśniejszy ciemny kolor dla kafelków */
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-light);
-            color: #ffffff; /* Zmienione na biały dla czytelności */
+            color: #ffffff;
             line-height: 1.6;
             margin: 0;
             padding: 0;
         }
 
+        /* NAGŁÓWEK - PRZYCIEMNIONY DLA LEPSZEGO KONTRASTU */
         header {
-            background-color: var(--primary-blue);
+            background-color: #1c2430; /* Dopasowany do ciemnego motywu i stopki */
             color: white;
             text-align: center;
             padding: 2rem 1rem;
@@ -35,6 +36,7 @@
             font-size: 2.5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            color: #ffffff;
         }
 
         header p {
@@ -43,9 +45,9 @@
             color: #dcdde1;
         }
 
-        /* PANEL NAWIGACYJNY */
+        /* PANEL NAWIGACYJNY - RÓWNIEŻ PRZYCIEMNIONY */
         nav {
-            background-color: #10246a;
+            background-color: #141b26; /* Bardzo ciemny granat/grafit */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -100,7 +102,7 @@
 
         /* STYLE DLA STRONY GŁÓWNEJ */
         .hero-home {
-            background: linear-gradient(135deg, var(--primary-blue), #2c52ed);
+            background: linear-gradient(135deg, #1e3799, #10246a);
             color: white;
             padding: 3.5rem 2rem;
             border-radius: 10px;
@@ -147,7 +149,7 @@
         .era-title {
             text-align: center;
             font-size: 2rem;
-            color: var(--accent-yellow); /* Zmienione z niebieskiego na żółty dla kontrastu */
+            color: var(--accent-yellow);
             border-bottom: 3px solid var(--accent-yellow);
             display: inline-block;
             margin: 2rem auto;
@@ -173,7 +175,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-top: 4px solid var(--primary-blue);
             text-align: left;
-            color: #dcdde1; /* Jasnoszary tekst wewnątrz kafelków */
+            color: #dcdde1;
         }
 
         .card:hover {
@@ -183,7 +185,7 @@
         }
 
         .card h3 {
-            color: var(--accent-yellow); /* Zmienione na żółty, by odznaczał się w kafelku */
+            color: var(--accent-yellow);
             margin-top: 0;
             font-size: 1.4rem;
             border-bottom: 1px solid #485460;
@@ -222,7 +224,7 @@
         }
 
         footer {
-            background-color: #1c2430; /* Lekko ciemniejszy odcień stopki dla domknięcia strony */
+            background-color: #1c2430;
             color: white;
             text-align: center;
             padding: 1.5rem;
@@ -250,7 +252,7 @@
         <div id="home" class="page-section active">
             <div class="hero-home">
                 <h2>Witamy w świecie błyskawic! ⚡</h2>
-                <p>Inazuma Eleven to kultowa seria gier japońskiego studia Level-5, łącząca w sobie najlepsze chechy klasycznego japońskiego RPG z dynamicznymi i niezwykle widowiskowymi meczami piłki nożnej.</p>
+                <p>Inazuma Eleven to kultowa seria gier japońskiego studia Level-5, łącząca w sobie najlepsze cechy klasycznego japońskiego RPG z dynamicznymi i niezwykle widowiskowymi meczami piłki nożnej.</p>
             </div>
             
             <div class="grid">
