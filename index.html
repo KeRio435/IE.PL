@@ -9,8 +9,8 @@
             --primary-blue: #1e3799;
             --accent-yellow: #f6b93b;
             --text-dark: #2f3640;
-            --bg-light: #2f3640; /* Główny ciemny kolor strony */
-            --card-bg: #353b48;  /* Jaśniejszy ciemny kolor dla kafelków */
+            --bg-light: #2f3640;
+            --card-bg: #353b48;
         }
 
         body {
@@ -22,9 +22,8 @@
             padding: 0;
         }
 
-        /* NAGŁÓWEK - PRZYCIEMNIONY DLA LEPSZEGO KONTRASTU */
         header {
-            background-color: #1c2430; /* Dopasowany do ciemnego motywu i stopki */
+            background-color: #1c2430;
             color: white;
             text-align: center;
             padding: 2rem 1rem;
@@ -45,9 +44,9 @@
             color: #dcdde1;
         }
 
-        /* PANEL NAWIGACYJNY - RÓWNIEŻ PRZYCIEMNIONY */
+        /* --- NAWIGACJA I DROPDOWN --- */
         nav {
-            background-color: #141b26; /* Bardzo ciemny granat/grafit */
+            background-color: #141b26;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -60,9 +59,10 @@
 
         .nav-links {
             display: flex;
+            align-items: center;
         }
 
-        nav a {
+        .main-nav-link, .dropbtn {
             color: white;
             text-decoration: none;
             padding: 0.5rem 1.5rem;
@@ -71,11 +71,58 @@
             border-radius: 5px;
             transition: all 0.3s ease;
             cursor: pointer;
+            display: inline-block;
         }
 
-        nav a:hover, nav a.active {
+        .main-nav-link:hover, .main-nav-link.active, .dropbtn:hover, .dropbtn.active {
             background-color: var(--accent-yellow);
             color: var(--text-dark);
+        }
+
+        /* Sekcja Dropdown (Rozwijane Menu) */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1c2430;
+            min-width: 320px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            z-index: 1000;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%); /* Wyśrodkowanie dropdowna względem przycisku */
+            border-radius: 0 0 5px 5px;
+            border-top: 3px solid var(--accent-yellow);
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: #dcdde1;
+            padding: 15px 20px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 1px solid #2f3640;
+            transition: background 0.2s, color 0.2s;
+            cursor: pointer;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #353b48;
+            color: var(--accent-yellow);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
         .container {
@@ -85,7 +132,6 @@
             min-height: 60vh;
         }
 
-        /* SEKCJONOWANIE STRON I ANIMACJA */
         .page-section {
             display: none;
             animation: fadeIn 0.4s ease;
@@ -100,7 +146,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* STYLE DLA STRONY GŁÓWNEJ */
         .hero-home {
             background: linear-gradient(135deg, #1e3799, #10246a);
             color: white;
@@ -145,7 +190,6 @@
             box-shadow: 0 6px 12px rgba(0,0,0,0.4);
         }
 
-        /* ORYGINALNE STYLE ELEMENTÓW STRONY */
         .era-title {
             text-align: center;
             font-size: 2rem;
@@ -223,6 +267,37 @@
             color: var(--accent-yellow);
         }
 
+        /* Styl przycisku pobierania spolszczeń */
+        .download-btn {
+            display: inline-block;
+            background-color: #44bd32;
+            color: white !important;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 1.5rem;
+            transition: all 0.3s;
+            text-align: center;
+            border-bottom: 3px solid #2f3640;
+        }
+
+        .download-btn:hover {
+            background-color: #4cd137;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(68, 189, 50, 0.4);
+            border-bottom: 3px solid #1c2430;
+        }
+
+        .trans-info-box {
+            background: #2f3640;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--accent-yellow);
+        }
+
         footer {
             background-color: #1c2430;
             color: white;
@@ -241,8 +316,21 @@
 
     <nav>
         <div class="nav-links">
-            <a id="nav-home" class="active" onclick="switchTab('home')">Strona Główna</a>
-            <a id="nav-history" onclick="switchTab('history')">Historia Gier</a>
+            <a id="nav-home" class="main-nav-link active" onclick="switchTab('home')">Strona Główna</a>
+            <a id="nav-history" class="main-nav-link" onclick="switchTab('history')">Historia Gier</a>
+            
+            <!-- NOWA SEKCJA: SPOLSZCZENIA (DROPDOWN) -->
+            <div class="dropdown">
+                <a id="nav-translations" class="dropbtn">Spolszczenia ▾</a>
+                <div class="dropdown-content">
+                    <a onclick="switchTab('trans-ie1')">Inazuma Eleven 1</a>
+                    <a onclick="switchTab('trans-ie2')">Inazuma Eleven Firestorm/Blizzard</a>
+					<a onclick="switchTab('trans-ie3')">Inazuma Eleven Team Ogre Attacks</a>
+					<a onclick="switchTab('trans-iego')">Inazuma Eleven GO</a>
+                    <a onclick="switchTab('trans-ie-cs')">Inazuma Eleven GO Chrono Stone</a>
+                    <a onclick="switchTab('trans-ie-galaxy')">Inazuma Eleven GO Galaxy</a>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -283,79 +371,181 @@
                     <h3>Inazuma Eleven</h3>
                     <span class="platform">Nintendo DS (2008)</span>
                     <p>Gra, od której wszystko się zaczęło. Śledzimy losy Marka Evansa, bramkarza i kapitana szkolnego klubu piłkarskiego Raimon, który próbuje zebrać drużynę, by wziąć udział w legendarnym turnieju Football Frontier.</p>
-                    <ul class="features">
-                        <li>Wprowadzenie unikalnego systemu sterowania rysikiem (stylus).</li>
-                        <li>Ponad 800 postaci do zrekrutowania.</li>
-                        <li>Spektakularne specjalne ruchy.</li>
-                    </ul>
                 </div>
 
                 <div class="card">
                     <h3>Inazuma Eleven 2</h3>
                     <span class="platform">Nintendo DS (2009)</span>
-                    <p>Wydana w dwóch wersjach: <strong>Firestorm</strong> i <strong>Blizzard</strong>. Drużyna Raimon podróżuje po całej Japonii w specjalnym autobusie (Inazuma Caravan), aby zebrać najsilniejszych graczy do walki z "kosmitami" z Akademii Aliusa, którzy niszczą szkoły za pomocą piłki nożnej.</p>
-                    <ul class="features">
-                        <li>Ewolucja technik (np. 1, 2, V2, L1, L2, L3).</li>
-                        <li>Dalekie strzały oraz blokowanie strzałów.</li>
-                        <li>Różnice fabularne zależne od posiadanej wersji.</li>
-                    </ul>
+                    <p>Wydana w dwóch wersjach: <strong>Firestorm</strong> i <strong>Blizzard</strong>. Drużyna Raimon podróżuje po całej Japonii, aby zebrać najsilniejszych graczy do walki z "kosmitami" z Akademii Aliusa.</p>
                 </div>
 
                 <div class="card">
                     <h3>Inazuma Eleven 3</h3>
                     <span class="platform">NDS (2010) / 3DS (2013)</span>
-                    <p>Wydana jako <strong>Lightining Bolt</strong>, <strong>Bomb Blast</strong> oraz <strong>Team Ogre Attacks!</strong>. Mark staje na czele reprezentacji Japonii (Inazuma National) i bierze udział w światowym turnieju Międzynarodowej Strefy Futbolu MSF (Football Frontier International FFI).</p>
-                    <ul class="features">
-                        <li>Wprowadzenie specjalnych taktyk.</li>
-                        <li>Strzały łańcuchowe.</li>
-                        <li>Ponad 2000 zawodników do zrekrutowania.</li>
-                    </ul>
+                    <p>Wydana jako <strong>Lightining Bolt</strong>, <strong>Bomb Blast</strong> oraz <strong>Team Ogre Attacks!</strong>. Mark staje na czele reprezentacji Japonii i bierze udział w turnieju FFI.</p>
                 </div>
             </div>
 
             <div class="era-section">
-                <h2 class="era-title">Trylogia GO (Ariona Sherwind)</h2>
+                <h2 class="era-title">Trylogia GO (Ariona Sherwinda)</h2>
             </div>
 
             <div class="grid">
                 <div class="card">
                     <h3>Inazuma Eleven GO</h3>
                     <span class="platform">Nintendo 3DS (2011)</span>
-                    <p>Wydana jako <strong>Light</strong> i <strong>Shadow</strong>. Akcja dzieje się 10 lat po wydarzeniach z trzeciej części. Piłka nożna jest kontrolowana przez mroczną organizację "Piąty Sektor". Nowy główny bohater, Arion Sherwind, dołącza do Raimona, by przywrócić prawdziwą piłkę nożną.</p>
-                    <ul class="features">
-                        <li>Przejście na pełne 3D dzięki konsoli Nintendo 3DS.</li>
-                        <li>System Duchów Walki/Awatarów zwiększający statystyki.</li>
-                        <li>Nowy, mroczniejszy i doroślejszy klimat.</li>
-                    </ul>
+                    <p>Wydana jako <strong>Light</strong> i <strong>Shadow</strong>. Akcja dzieje się 10 lat po wydarzeniach z trzeciej części. Piłka nożna jest kontrolowana przez organizację "Piąty Sektor".</p>
                 </div>
 
                 <div class="card">
                     <h3>Inazuma Eleven GO Chrono Stones</h3>
                     <span class="platform">Nintendo 3DS (2012)</span>
-                    <p>Wydana jako <strong>Wildfire</strong> i <strong>Thunderflash</strong>. Futbol zostaje wymazany z historii przez organizację z przyszłości El Dorado. Arion i jego drużyna podróżują w czasie, by zebrać aurę najpotężniejszych postaci historycznych (np. Nobunagi, Joanny d'Arc) by stworzyć Ostateczną Jedenastkę.</p>
-                    <ul class="features">
-                        <li>System "Miximax" - fuzja aur dwóch zawodników.</li>
-                        <li>"Zbroja Ducha Walki" - zakładanie duchów walki jako zbroi.</li>
-                        <li>Eksploracja różnych epok historycznych.</li>
-                    </ul>
+                    <p>Wydana jako <strong>Wildfire</strong> i <strong>Thunderflash</strong>. Futbol zostaje wymazany z historii. Arion podróżuje w czasie, by stworzyć Ostateczną Jedenastkę.</p>
                 </div>
 
                 <div class="card">
                     <h3>Inazuma Eleven GO Galaxy</h3>
                     <span class="platform">Nintendo 3DS (2013)</span>
-                    <p>Wydana jako <strong>Big Bang</strong> i <strong>Supernova</strong>. Turniej reprezentacyjny przeradza się w walkę o przetrwanie Ziemi w międzygalaktycznym turnieju Grand Celesta Galaxy. Zespół Ziemian rekrutuje początkujących, ale niezwykle utalentowanych sportowców z innych dziedzin.</p>
-                    <ul class="features">
-                        <li>Wprowadzenie systemu Totemów, pozwalającego na transformację w potężne zwierzęta.</li>
-                        <li>Podróże po obcych planetach z różnymi warunkami grawitacyjnymi.</li>
-                        <li>Ponad 2000 w pełni wymodelowanych postaci 3D do zrekrutowania.</li>
-                    </ul>
+                    <p>Wydana jako <strong>Big Bang</strong> i <strong>Supernova</strong>. Walka o przetrwanie Ziemi w międzygalaktycznym turnieju Grand Celesta Galaxy.</p>
                 </div>
             </div>
         </div>
 
-        <!-- ================================================================= -->
-        <!-- SEKCOJA KOMENTARZY DISQUS (DOPASOWANA DO TRYBU CIEMNEGO) -->
-        <!-- ================================================================= -->
+        <!-- ============================================== -->
+        <!-- SEKCJE SPOLSZCZEŃ -->
+        <!-- ============================================== -->
+
+        <!-- Inazuma Eleven 1 -->
+        <div id="trans-ie1" class="page-section">
+            <div class="hero-home">
+                <h2>Spolszczenie do Inazumy Eleven 1 (NDS)</h2>
+                <p>Pełne tłumaczenie gry, od której zaczęła się piłkarska legenda.</p>
+            </div>
+            <div class="card" style="margin: 0 auto; max-width: 800px; text-align: center;">
+                <h3>O tłumaczeniu</h3>
+                <p style="text-align: left;">Projekt spolszczenia pierwszej części przygód Marka Evansa obejmuje przetłumaczenie fabuły, wszystkich dialogów, interfejsu (UI) oraz nazw przedmiotów. Dzięki temu łatwiej zanurzysz się w świat Inazumy Eleven w ojczystym języku.</p>
+                
+                <div class="trans-info-box" style="text-align: left;">
+                    <strong>Wersja gry:</strong> Nintendo DS (Europejska) <br>
+                    <strong>Postęp tłumaczenia:</strong> 10% (W trakcie prac)<br>
+					<strong>Wymagania:</strong> Emulator MelonDS<br>
+                    <strong>Autorzy:</strong> KeRio
+                </div>
+                
+                <p style="font-size: 0.9rem; color: #718093;"></p>
+                
+                <a href="LINK_DO_POBRANIA_IE1" class="download-btn">Pobierz Spolszczenie ⬇ (Brak)</a>
+            </div>
+        </div>
+
+        <!-- Inazuma Eleven 2 -->
+        <div id="trans-ie2" class="page-section">
+            <div class="hero-home">
+                <h2>Spolszczenie do Inazumy Eleven 2 (NDS)</h2>
+                <p>Firestorm & Blizzard w języku polskim.</p>
+            </div>
+            <div class="card" style="margin: 0 auto; max-width: 800px; text-align: center;">
+                <h3>O tłumaczeniu</h3>
+                <p style="text-align: left;">Wyrusz w podróż piłkobusem Inazumy przez całą Japonię. Spolszczenie obejmuje obie wersje językowe (Firestorm oraz Blizzard). Zmierz się z Akademią Aliusa w pełni po polsku.</p>
+                
+                <div class="trans-info-box" style="text-align: left;">
+                    <strong>Wersja gry:</strong> Nintendo DS (Firestorm / Blizzard) <br>
+                    <strong>Postęp tłumaczenia:</strong> [Brak prace nie rozpoczęte]<br>
+					<strong>Wymagania:</strong> Emulator MelonDS<br>
+                    <strong>Autorzy:</strong> [Brak]
+                </div>
+                
+                <a href="LINK_DO_POBRANIA_IE2" class="download-btn">Pobierz Spolszczenie ⬇ (Brak)</a>
+            </div>
+        </div>
+		
+		<!-- Inazuma Eleven 3 -->
+        <div id="trans-ie3" class="page-section">
+            <div class="hero-home">
+                <h2>Spolszczenie do Inazumy Eleven 3 (3DS)</h2>
+                <p>Team Ogre Attacks w języku polskim.</p>
+            </div>
+            <div class="card" style="margin: 0 auto; max-width: 800px; text-align: center;">
+                <h3>O tłumaczeniu</h3>
+                <p style="text-align: left;">Czas na Football Frontier International poznaj zwięczenie historii Marka Evansa po Polsku</p>
+                
+                <div class="trans-info-box" style="text-align: left;">
+                    <strong>Wersja gry:</strong> Nintendo 3DS (Team Ogre Attacks)<br>
+                    <strong>Postęp tłumaczenia:</strong> [Brak prace nie rozpoczęte]<br>
+					<strong>Wymagania:</strong> Emulator Azahar<br>
+                    <strong>Autorzy:</strong> [Brak]
+                </div>
+                
+                <a href="LINK_DO_POBRANIA_IE3" class="download-btn">Pobierz Spolszczenie ⬇ (Brak)</a>
+            </div>
+        </div>
+		
+		<!-- Inazuma Eleven GO -->
+        <div id="trans-iego" class="page-section">
+            <div class="hero-home">
+                <h2>Spolszczenie do Inazumy Eleven GO (3DS)</h2>
+                <p>Light / Shadow w języku polskim.</p>
+            </div>
+            <div class="card" style="margin: 0 auto; max-width: 800px; text-align: center;">
+                <h3>O tłumaczeniu</h3>
+                <p style="text-align: left;">Poznaj historię Ariona Sherwinda 10 lat po końcu historii Marka Evansa</p>
+                
+                <div class="trans-info-box" style="text-align: left;">
+                    <strong>Wersja gry:</strong> Nintendo 3DS (Light / Shadow)<br>
+                    <strong>Postęp tłumaczenia:</strong> [Brak prace nie rozpoczęte]<br>
+					<strong>Wymagania:</strong> Emulator Azahar<br>
+                    <strong>Autorzy:</strong> [Brak]
+                </div>
+                
+                <a href="LINK_DO_POBRANIA_IEGO" class="download-btn">Pobierz Spolszczenie ⬇ (Brak)</a>
+            </div>
+        </div>
+
+        <!-- Inazuma Eleven GO Chrono Stone -->
+        <div id="trans-ie-cs" class="page-section">
+            <div class="hero-home">
+                <h2>Spolszczenie do Inazumy Eleven GO Chrono Stone</h2>
+                <p>Płomień / Grzmot EN:(Wildfire / Thunderflash).</p>
+            </div>
+            <div class="card" style="margin: 0 auto; max-width: 800px; text-align: center;">
+                <h3>O tłumaczeniu</h3>
+                <p style="text-align: left;">Zagraj w jedną z najbardziej rozbudowanych gier na 3DS z serii Inazuma Eleven po Polsku. Ze względu na zawiłą fabułę i podróże w czasie, spolszczenie znacznie ułatwia zrozumienie całej historii i mechaniki Miximax.</p>
+                
+                <div class="trans-info-box" style="text-align: left;">
+                    <strong>Wersja gry:</strong> Nintendo 3DS (Wildfire / Thunderflash) <br>
+                    <strong>Wymagania:</strong> Emulator Azahar<br>
+                    <strong>Postęp tłumaczenia:</strong> [99% brak przetłumaczonych obrazów z tutoriali]
+					 <strong>Autorzy:</strong> KeRio
+                </div>
+                
+                <a href="https://www.mediafire.com/file/hgwvtdzh0n0ed5i/Spolszczenie_do_IE_GO_Chrono_Stone_30.11.2025.rar/file" class="download-btn">Pobierz Spolszczenie ⬇</a>
+            </div>
+        </div>
+
+        <!-- Inazuma Eleven GO Galaxy -->
+        <div id="trans-ie-galaxy" class="page-section">
+            <div class="hero-home">
+                <h2>Spolszczenie do Inazumy Eleven GO Galaxy</h2>
+                <p>Supernova / Bigbang</p>
+            </div>
+            <div class="card" style="margin: 0 auto; max-width: 800px; text-align: center;">
+                <h3>O tłumaczeniu</h3>
+                <p style="text-align: left;">Gra Inazuma Eleven GO Galaxy nigdy nie została oficjalnie wydana poza Japonią! To spolszczenie (bazujące na fanowskich tłumaczeniu na język Angielski) pozwala cieszyć się zwieńczeniem przygód Ariona Sherwinda po Polsku.</p>
+                
+                <div class="trans-info-box" style="text-align: left;">
+                    <strong>Wersja gry:</strong> Nintendo 3DS (Big Bang / Supernova) JAP<br>
+                    <strong>Wymagania:</strong> Emulator Azahar<br>
+                    <strong>Postęp tłumaczenia:</strong> [70% Brak przetłumaczonych textur]
+					 <strong>Autorzy:</strong> KeRio
+                </div>
+                
+                <a href="https://www.mediafire.com/file/aw1iuhy7rw3b4ka/Spolszczenie_do_IE_GO_Galaxy_21.08.2024.rar/file" class="download-btn">Pobierz Spolszczenie ⬇</a>
+            </div>
+        </div>
+        <!-- ============================================== -->
+
+
+        <!-- SEKCJA KOMENTARZY DISQUS -->
         <div id="disqus_thread" style="margin-top: 4rem; background: #353b48; color: #ffffff; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);"></div>
         <script>
             var disqus_config = function () {
@@ -370,25 +560,45 @@
             })();
         </script>
         <noscript>Proszę włącz JavaScript, aby zobaczyć <a href="https://disqus.com/?ref_noscript">komentarze zasilane przez Disqus.</a></noscript>
-        <!-- ================================================================= -->
 
-    </div> <!-- KONIEC GŁÓWNEGO KONTENERA container -->
+    </div> <!-- KONIEC GŁÓWNEGO KONTENERA -->
 
     <footer>
         <p>&copy; Strona stworzona dla fanów Inazuma Eleven. Wszystkie nazwy własne i tytuły gier należą do Level-5.</p>
     </footer>
 
     <script>
+        // Funkcja do zmiany zakładek/stron
         function switchTab(sectionId) {
+            // 1. Ukryj wszystkie sekcje stron
             document.querySelectorAll('.page-section').forEach(section => {
                 section.classList.remove('active');
             });
-            document.querySelectorAll('.nav-links a').forEach(link => {
+            
+            // 2. Usuń podświetlenie (active) ze wszystkich głównych przycisków
+            document.querySelectorAll('.main-nav-link, .dropbtn').forEach(link => {
                 link.classList.remove('active');
             });
             
-            document.getElementById(sectionId).classList.add('active');
-            document.getElementById('nav-' + sectionId).classList.add('active');
+            // 3. Pokaż wybraną sekcję
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+
+            // 4. Podświetl odpowiedni element w nawigacji
+            // Jeśli ID sekcji zaczyna się od 'trans-', podświetlamy główny przycisk 'Spolszczenia'
+            if (sectionId.startsWith('trans-')) {
+                document.getElementById('nav-translations').classList.add('active');
+            } else {
+                // W przeciwnym razie podświetlamy klikniętą zakładkę
+                const activeNav = document.getElementById('nav-' + sectionId);
+                if (activeNav) {
+                    activeNav.classList.add('active');
+                }
+            }
+            
+            // 5. Przewiń stronę na samą górę
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
