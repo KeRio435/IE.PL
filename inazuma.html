@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Serii Inazuma Eleven</title>
+    <style>
+        :root {
+            --primary-blue: #1e3799;
+            --accent-yellow: #f6b93b;
+            --text-dark: #2f3640;
+            --bg-light: #f5f6fa;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary-blue);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            border-bottom: 5px solid var(--accent-yellow);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            font-size: 1.2rem;
+            color: #dcdde1;
+        }
+
+        /* PANEL NAWIGACYJNY */
+        nav {
+            background-color: #10246a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--accent-yellow);
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: var(--accent-yellow);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            min-height: 60vh;
+        }
+
+        /* SEKCJONOWANIE STRON I ANIMACJA */
+        .page-section {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* STYLE DLA STRONY GŁÓWNEJ */
+        .hero-home {
+            background: linear-gradient(135deg, var(--primary-blue), #2c52ed);
+            color: white;
+            padding: 3.5rem 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .hero-home h2 {
+            margin-top: 0;
+            font-size: 2.3rem;
+            color: var(--accent-yellow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-home p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 1rem auto 0 auto;
+        }
+
+        .cta-btn {
+            background-color: var(--accent-yellow);
+            color: var(--text-dark);
+            border: none;
+            padding: 0.8rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 1.5rem;
+        }
+
+        .cta-btn:hover {
+            background-color: #e1a92a;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* ORYGINALNE STYLE ELEMENTÓW STRONY */
+        .era-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-blue);
+            border-bottom: 3px solid var(--accent-yellow);
+            display: inline-block;
+            margin: 2rem auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .era-section {
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--primary-blue);
+            text-align: left;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            border-top-color: var(--accent-yellow);
+        }
+
+        .card h3 {
+            color: var(--primary-blue);
+            margin-top: 0;
+            font-size: 1.4rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .platform {
+            display: inline-block;
+            background-color: #718093;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .features {
+            list-style-type: none;
+            padding: 0;
+            margin: 1rem 0 0 0;
+        }
+
+        .features li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .features li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            color: var(--accent-yellow);
+        }
+
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Seria Inazuma Eleven</h1>
+        <p>Przewodnik po grach piłkarskich RPG od Level-5 (NDS & 3DS)</p>
+    </header>
+
+    <nav>
+        <div class="nav-links">
+            <a id="nav-home" class="active" onclick="switchTab('home')">Strona Główna</a>
+            <a id="nav-history" onclick="switchTab('history')">Historia Gier</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <div id="home" class="page-section active">
+            <div class="hero-home">
+                <h2>Witamy w świecie błyskawic! ⚡</h2>
+                <p>Inazuma Eleven to kultowa seria gier japońskiego studia Level-5, łącząca w sobie najlepsze cechy klasycznego japońskiego RPG z dynamicznymi i niezwykle widowiskowymi meczami piłki nożnej.</p>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>O Projekcie</h3>
+                    <p>Ta strona powstała z myślą o fanach serii oraz osobach, które chcą poznać historię wirtualnych boisk Inazuma Eleven. Znajdziesz tutaj kompleksowy przegląd gier wydanych na kultowe konsole przenośne Nintendo DS oraz Nintendo 3DS.</p>
+                </div>
+                <div class="card">
+                    <h3>Co Cię czeka?</h3>
+                    <p>Odkryj ewolucję mechanik rozgrywki, poznaj przełomowe systemy takie jak Keshin czy Miximax, oraz prześledź losy kultowych bohaterów, którzy rewolucjonizowali szkolne i światowe turnieje piłkarskie.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <button class="cta-btn" onclick="switchTab('history')">Odkryj Historię Gier ➔</button>
+            </div>
+        </div>
+
+        <div id="history" class="page-section">
+            
+            <div class="era-section">
+                <h2 class="era-title">Oryginalna Trylogia (Era Mamoru Endou)</h2>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Inazuma Eleven</h3>
+                    <span class="platform">Nintendo DS (2008)</span>
+                    <p>Gra, od której wszystko się zaczęło. Śledzimy losy Mamoru Endou (Marka Evansa), bramkarza i kapitana szkolnego klubu piłkarskiego Raimon, który próbuje zebrać drużynę, by wziąć udział w legendarnym turnieju Football Frontier.</p>
+                    <ul class="features">
+                        <li>Wprowadzenie unikalnego systemu sterowania rysikiem (stylus).</li>
+                        <li>Ponad 1000 postaci do zrekrutowania.</li>
+                        <li>Spektakularne techniki specjalne (Hissatsu).</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Inazuma Eleven 2</h3>
+                    <span class="platform">Nintendo DS (2009)</span>
+                    <p>Wydana w dwóch wersjach: <strong>Firestorm</strong> i <strong>Blizzard</strong>. Drużyna Raimon podróżuje po całej Japonii w specjalnym autobusie (Inazuma Caravan), aby zebrać najsilniejszych graczy do walki z "kosmitami" z Aliea Gakuen, którzy niszczą szkoły za pomocą piłki nożnej.</p>
+                    <ul class="features">
+                        <li>Ewolucja technik (np. G1, G2, V2, Kai, Shin).</li>
+                        <li>Dalekie strzały (Long Shoots) oraz blokowanie strzałów.</li>
+                        <li>Różnice fabularne zależne od posiadanej wersji.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Inazuma Eleven 3</h3>
+                    <span class="platform">NDS (2010) / 3DS (2013)</span>
+                    <p>Wydana jako <strong>Spark</strong>, <strong>Bomber</strong> oraz <strong>Team Ogre Attacks!</strong>. Endou staje na czele reprezentacji Japonii (Inazuma Japan) i bierze udział w światowym turnieju Football Frontier International (FFI).</p>
+                    <ul class="features">
+                        <li>Wprowadzenie taktyk drużynowych (Hissatsu Tactics).</li>
+                        <li>Strzały łączone (Chain Shoots).</li>
+                        <li>Ponad 2000 zawodników do wyboru.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="era-section">
+                <h2 class="era-title">Trylogia GO (Era Tenmy Matsukaze)</h2>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Inazuma Eleven GO</h3>
+                    <span class="platform">Nintendo 3DS (2011)</span>
+                    <p>Wydana jako <strong>Light</strong> i <strong>Shadow</strong>. Akcja dzieje się 10 lat po wydarzeniach z trzeciej części. Piłka nożna jest kontrolowana przez mroczną organizację "Fifth Sector". Nowy główny bohater, Tenma Matsukaze (Arion Sherwind), dołącza do Raimona, by przywrócić prawdziwą piłkę nożną.</p>
+                    <ul class="features">
+                        <li>Przejście na pełne 3D dzięki konsoli Nintendo 3DS.</li>
+                        <li>System "Keshin" (Duchy Bojowe/Awatary) zwiększające statystyki.</li>
+                        <li>Nowy, mroczniejszy i doroślejszy klimat.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Inazuma Eleven GO Chrono Stones</h3>
+                    <span class="platform">Nintendo 3DS (2012)</span>
+                    <p>Wydana jako <strong>Wildfire</strong> i <strong>Thunderflash</strong>. Futbol zostaje wymazany z historii przez organizację z przyszłości (El Dorado). Tenma i jego drużyna podróżują w czasie, by zebrać aurę najpotężniejszych postaci historycznych (np. Nobunaga, Joanna d'Arc) i stworzyć Drużynę Ostateczną.</p>
+                    <ul class="features">
+                        <li>System "Miximax" - fuzja aur dwóch zawodników.</li>
+                        <li>"Keshin Armed" - zakładanie duchów bojowych jako zbroi.</li>
+                        <li>Eksploracja różnych epok historycznych.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Inazuma Eleven GO Galaxy</h3>
+                    <span class="platform">Nintendo 3DS (2013)</span>
+                    <p>Wydana jako <strong>Big Bang</strong> i <strong>Supernova</strong>. Turniej reprezentacyjny przeradza się w walkę o przetrwanie Ziemi w międzygalaktycznym turnieju Grand Celesta Galaxy. Zespół Earth Eleven rekrutuje początkujących, ale niezwykle utalentowanych sportowców z innych dziedzin.</p>
+                    <ul class="features">
+                        <li>Wprowadzenie systemu "Souls" (Dusze/Totemy), pozwalającego na transformację w potężne zwierzęta.</li>
+                        <li>Podróże po obcych planetach z różnymi warunkami grawitacyjnymi.</li>
+                        <li>Ponad 2000 w pełni wymodelowanych postaci 3D do zdobycia.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; Strona stworzona dla fanów Inazuma Eleven. Wszystkie nazwy własne i tytuły gier należą do Level-5.</p>
+    </footer>
+
+    <script>
+        function switchTab(sectionId) {
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            document.getElementById(sectionId).classList.add('active');
+            document.getElementById('nav-' + sectionId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
