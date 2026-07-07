@@ -94,7 +94,7 @@
             z-index: 1000;
             top: 100%;
             left: 50%;
-            transform: translateX(-50%); /* Wyśrodkowanie dropdowna względem przycisku */
+            transform: translateX(-50%);
             border-radius: 0 0 5px 5px;
             border-top: 3px solid var(--accent-yellow);
             overflow: hidden;
@@ -247,27 +247,42 @@
             margin-bottom: 1rem;
         }
 
-        .features {
-            list-style-type: none;
-            padding: 0;
-            margin: 1rem 0 0 0;
+        /* --- UNIWERSALNY STYL DLA ZDJĘĆ NA STRONIE --- */
+        .game-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 15px auto;
+            display: block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            border: 2px solid #485460;
         }
 
-        .features li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
+        /* Styl dla pionowej listy ciekawostek */
+        .funfacts-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .features li::before {
-            content: '⚡';
-            position: absolute;
-            left: 0;
+        .funfact-item {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            border-left: 5px solid var(--accent-yellow);
+        }
+
+        .funfact-item h3 {
             color: var(--accent-yellow);
+            margin-top: 0;
+            font-size: 1.5rem;
+            border-bottom: 1px solid #485460;
+            padding-bottom: 0.5rem;
         }
 
-        /* Styl przycisku pobierania spolszczeń */
         .download-btn {
             display: inline-block;
             background-color: #44bd32;
@@ -310,23 +325,24 @@
 <body>
 
     <header>
-        <h1>Seria Inazuma Eleven</h1>
-        <p>Przewodnik po grach piłkarskich RPG od Level-5 (NDS & 3DS)</p>
+        <h1>Inazuma Eleven Polska</h1>
+        <p>Strona poświęcona grą z serii Inazuma Eleven RPG od Level-5 (NDS & 3DS)</p>
     </header>
 
     <nav>
         <div class="nav-links">
             <a id="nav-home" class="main-nav-link active" onclick="switchTab('home')">Strona Główna</a>
             <a id="nav-history" class="main-nav-link" onclick="switchTab('history')">Historia Gier</a>
+            <a id="nav-funfacts" class="main-nav-link" onclick="switchTab('funfacts')">Ciekawostki</a>
             
-            <!-- NOWA SEKCJA: SPOLSZCZENIA (DROPDOWN) -->
+            <!-- SEKCJA: SPOLSZCZENIA (DROPDOWN) -->
             <div class="dropdown">
                 <a id="nav-translations" class="dropbtn">Spolszczenia ▾</a>
                 <div class="dropdown-content">
                     <a onclick="switchTab('trans-ie1')">Inazuma Eleven 1</a>
                     <a onclick="switchTab('trans-ie2')">Inazuma Eleven Firestorm/Blizzard</a>
-					<a onclick="switchTab('trans-ie3')">Inazuma Eleven Team Ogre Attacks</a>
-					<a onclick="switchTab('trans-iego')">Inazuma Eleven GO</a>
+                    <a onclick="switchTab('trans-ie3')">Inazuma Eleven Team Ogre Attacks</a>
+                    <a onclick="switchTab('trans-iego')">Inazuma Eleven GO</a>
                     <a onclick="switchTab('trans-ie-cs')">Inazuma Eleven GO Chrono Stone</a>
                     <a onclick="switchTab('trans-ie-galaxy')">Inazuma Eleven GO Galaxy</a>
                 </div>
@@ -340,17 +356,17 @@
         <div id="home" class="page-section active">
             <div class="hero-home">
                 <h2>Witamy w świecie Inazumy Eleven</h2>
-                <p>Inazuma Eleven to kultowa seria gier japońskiego studia Level-5, łącząca w sobie najlepsze cechy klasycznego japońskiego RPG z dynamicznymi i niezwykle widowiskowymi meczami piłki nożnej.</p>
+                <p>Inazuma Eleven to kultowa seria gier japońskiego studia Level-5, łącząca w sobie najlepsze chechy klasycznego japońskiego RPG z dynamicznymi i niezwykle widowiskowymi meczami piłki nożnej.</p>
             </div>
             
             <div class="grid">
                 <div class="card">
                     <h3>O Projekcie</h3>
-                    <p>Ta strona powstała z myślą o fanach serii oraz osobach, które chcą poznać historię wirtualnych boisk Inazuma Eleven. Znajdziesz tutaj kompleksowy przegląd gier wydanych na kultowe konsole przenośne Nintendo DS oraz Nintendo 3DS.</p>
+                    <p>Ta strona powstała z myślą o fanach serii oraz osobach, które chcą poznać historię wirtualnych boisk Inazuma Eleven. Znajdziesz tutaj kompleksowy przegląd gier wydanych na kultowe konsole przenośne Nintendo DS oraz Nintendo 3DS oraz spolszczenia do tych gier.</p>
                 </div>
                 <div class="card">
                     <h3>Co Cię czeka?</h3>
-                    <p>Odkryj ewolucję mechanik rozgrywki, poznaj przełomowe systemy takie jak Keshin czy Miximax, oraz prześledź losy kultowych bohaterów, którzy rewolucjonizowali szkolne i światowe turnieje piłkarskie.</p>
+                    <p>Odkryj ewolucję mechanik rozgrywki, poznaj przełomowe systemy takie jak Duchy Walki czy Miximax, oraz prześledź losy kultowych bohaterów, którzy rewolucjonizowali szkolne i światowe turnieje piłkarskie a także poznaj różne ciekawostki na temat gier z serii Inazuma Eleven.</p>
                 </div>
             </div>
 
@@ -387,14 +403,14 @@
             </div>
 
             <div class="era-section">
-                <h2 class="era-title">Trylogia GO (Ariona Sherwinda)</h2>
+                <h2 class="era-title">Trylogia GO (Ariona Sherwind)</h2>
             </div>
 
             <div class="grid">
                 <div class="card">
                     <h3>Inazuma Eleven GO</h3>
                     <span class="platform">Nintendo 3DS (2011)</span>
-                    <p>Wydana jako <strong>Light</strong> i <strong>Shadow</strong>. Akcja dzieje się 10 lat po wydarzeniach z trzeciej części. Piłka nożna jest kontrolowana przez organizację "Piąty Sektor".</p>
+                    <p>Wydana jako <strong>Light</strong> i <strong>Shadow</strong>. Akcja dzieje się 10 lat po wydarzeniach z trzeciej części. Piłka nożna jest kontrolowana przez mroczną organizację "Piąty Sektor".</p>
                 </div>
 
                 <div class="card">
@@ -412,6 +428,56 @@
         </div>
 
         <!-- ============================================== -->
+        <!-- SEKCJA CIEKAWOSTEK (PIONOWA LISTA JEDNA POD DRUGĄ) -->
+        <!-- ============================================== -->
+        <div id="funfacts" class="page-section">
+            <div class="hero-home">
+                <h2>Ciekawostki ze Świata Inazuma Eleven</h2>
+                <p>Niezwykłe fakty, sekrety z produkcji i ukryte smaczki z gier od IE1 do IE GO!</p>
+            </div>
+
+            <div class="funfacts-list">
+                
+                <!-- Ciekawostka 1 -->
+                <div class="funfact-item">
+                    <h3>1. Pierwotny koncept i inny wygląd Marka (Inazuma Eleven 1)</h3>
+                    <p>Czy wiedziałeś, że we wczesnej fazie produkcji pierwszej części Inazuma Eleven, główny bohater Mark Evans (Mamoru Endou) wyglądał zupełnie inaczej? Zamiast kultowej pomarańczowej opaski na głowie, projektanci ze studia Level-5 planowali dać mu fryzurę z wieloma sterczącymi pasmami oraz zupełnie inny strój. Twórcy zmienili zdanie, chcąc, aby jego wygląd bardziej kojarzył się z klasycznymi, japońskimi postaciami o silnej woli walki.</p>
+                    
+                    <!-- MIEJSCE NA TWOJE ZDJĘCIE (Podmień PILK.jpg na właściwy plik graficzny) -->
+                    <img src="img/ciekawostka_ie1.jpg" alt="Wczesny koncept Marka Evansa" class="game-img">
+                </div>
+
+                <!-- Ciekawostka 2 -->
+                <div class="funfact-item">
+                    <h3>2. Ekskluzywne sekrety wersji Firestorm i Blizzard (Inazuma Eleven 2)</h3>
+                    <p>Inazuma Eleven 2 była pierwszą grą w serii, która zapoczątkowała tradycję wydawania dwóch osobnych wersji. Poza unikalnymi zawodnikami (jak Torch w Firestorm i Gazelle w Blizzard), wersje te drastycznie zmieniały też niektóre sceny i wątki romantyczne wokół Marka! W zależności od wersji, gra sugerowała większe zbliżenie uczuciowe Marka z inną menedżerką zespołu Raimon – Nelly lub Silvią.</p>
+                    
+                    <!-- MIEJSCE NA TWOJE ZDJĘCIE -->
+                    <img src="img/ciekawostka_ie2.jpg" alt="Różnice wersji Firestorm i Blizzard" class="game-img">
+                </div>
+
+                <!-- Ciekawostka 3 -->
+                <div class="funfact-item">
+                    <h3>3. Przepustka do przyszłości, czyli Kanon Evans (Inazuma Eleven 3)</h3>
+                    <p>W trzeciej części (oraz w filmie kinowym), w wersji Team Ogre Attacks!, kluczową rolę odgrywa Kanon Evans – prawnuk Marka, który przybył z odległej przyszłości (80 lat w przód). Co ciekawe, w kodzie oryginalnej gry na Nintendo DS Kanon posiada unikalne statystyki, które bezpośrednio nawiązują do legendarnego dziadka, a jego specjalna technika "God Cannon" zużywa dokładnie tyle samo punktów TP, co flagowe ruchy strzeleckie z pierwszej generacji.</p>
+                    
+                    <!-- MIEJSCE NA TWOJE ZDJĘCIE -->
+                    <img src="img/ciekawostka_ie3.jpg" alt="Kanon Evans w akcji" class="game-img">
+                </div>
+
+                <!-- Ciekawostka 4 -->
+                <div class="funfact-item">
+                    <h3>4. Rezygnacja ze Zbroi Duchów Walki w kosmosie (Inazuma Eleven GO Galaxy)</h3>
+                    <p>Gry z trylogii GO wprowadziły potężne mechaniki: Duchy Walki (Keshiny), ich zbroje (Keshin Armed) oraz Miximax. Jednak w ostatniej części trylogii – GO Galaxy – twórcy postanowili drastycznie ograniczyć używanie zbroi Keshin Armed w trakcie galaktycznego turnieju fabularnego. Zamiast tego wprowadzono system "Totemów" (Souls). Według wewnętrznych wywiadów z Level-5, zmiana ta miała na celu powrót do korzeni serii i nadanie meczom bardziej dzikiego, nieprzewidywalnego charakteru.</p>
+                    
+                    <!-- MIEJSCE NA TWOJE ZDJĘCIE -->
+                    <img src="img/ciekawostka_iego.jpg" alt="System Totemów w Inazuma Eleven GO Galaxy" class="game-img">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ============================================== -->
         <!-- SEKCJE SPOLSZCZEŃ -->
         <!-- ============================================== -->
 
@@ -425,14 +491,15 @@
                 <h3>O tłumaczeniu</h3>
                 <p style="text-align: left;">Projekt spolszczenia pierwszej części przygód Marka Evansa obejmuje przetłumaczenie fabuły, wszystkich dialogów, interfejsu (UI) oraz nazw przedmiotów. Dzięki temu łatwiej zanurzysz się w świat Inazumy Eleven w ojczystym języku.</p>
                 
+                <!-- PRZYKŁAD ZDJĘCIA W SEKCIJI SPOLSZCZENIA -->
+                <img src="https://imgur.com/a/1ol7WQg" alt="Screen ze spolszczenia IE1" class="game-img">
+
                 <div class="trans-info-box" style="text-align: left;">
                     <strong>Wersja gry:</strong> Nintendo DS (Europejska) <br>
                     <strong>Postęp tłumaczenia:</strong> 10% (W trakcie prac)<br>
-					<strong>Wymagania:</strong> Emulator MelonDS<br>
+                    <strong>Wymagania:</strong> Emulator MelonDS<br>
                     <strong>Autorzy:</strong> KeRio
                 </div>
-                
-                <p style="font-size: 0.9rem; color: #718093;"></p>
                 
                 <a href="LINK_DO_POBRANIA_IE1" class="download-btn">Pobierz Spolszczenie ⬇ (Brak)</a>
             </div>
@@ -451,15 +518,15 @@
                 <div class="trans-info-box" style="text-align: left;">
                     <strong>Wersja gry:</strong> Nintendo DS (Firestorm / Blizzard) <br>
                     <strong>Postęp tłumaczenia:</strong> [Brak prace nie rozpoczęte]<br>
-					<strong>Wymagania:</strong> Emulator MelonDS<br>
+                    <strong>Wymagania:</strong> Emulator MelonDS<br>
                     <strong>Autorzy:</strong> [Brak]
                 </div>
                 
                 <a href="LINK_DO_POBRANIA_IE2" class="download-btn">Pobierz Spolszczenie ⬇ (Brak)</a>
             </div>
         </div>
-		
-		<!-- Inazuma Eleven 3 -->
+        
+        <!-- Inazuma Eleven 3 -->
         <div id="trans-ie3" class="page-section">
             <div class="hero-home">
                 <h2>Spolszczenie do Inazumy Eleven 3 (3DS)</h2>
@@ -472,15 +539,15 @@
                 <div class="trans-info-box" style="text-align: left;">
                     <strong>Wersja gry:</strong> Nintendo 3DS (Team Ogre Attacks)<br>
                     <strong>Postęp tłumaczenia:</strong> [Brak prace nie rozpoczęte]<br>
-					<strong>Wymagania:</strong> Emulator Azahar<br>
+                    <strong>Wymagania:</strong> Emulator Azahar<br>
                     <strong>Autorzy:</strong> [Brak]
                 </div>
                 
                 <a href="LINK_DO_POBRANIA_IE3" class="download-btn">Pobierz Spolszczenie ⬇ (Brak)</a>
             </div>
         </div>
-		
-		<!-- Inazuma Eleven GO -->
+        
+        <!-- Inazuma Eleven GO -->
         <div id="trans-iego" class="page-section">
             <div class="hero-home">
                 <h2>Spolszczenie do Inazumy Eleven GO (3DS)</h2>
@@ -493,7 +560,7 @@
                 <div class="trans-info-box" style="text-align: left;">
                     <strong>Wersja gry:</strong> Nintendo 3DS (Light / Shadow)<br>
                     <strong>Postęp tłumaczenia:</strong> [Brak prace nie rozpoczęte]<br>
-					<strong>Wymagania:</strong> Emulator Azahar<br>
+                    <strong>Wymagania:</strong> Emulator Azahar<br>
                     <strong>Autorzy:</strong> [Brak]
                 </div>
                 
@@ -505,7 +572,7 @@
         <div id="trans-ie-cs" class="page-section">
             <div class="hero-home">
                 <h2>Spolszczenie do Inazumy Eleven GO Chrono Stone</h2>
-                <p>Płomień / Grzmot EN:(Wildfire / Thunderflash).</p>
+                <p>Płomień / Grzmot EN: (Wildfire / Thunderflash).</p>
             </div>
             <div class="card" style="margin: 0 auto; max-width: 800px; text-align: center;">
                 <h3>O tłumaczeniu</h3>
@@ -513,9 +580,9 @@
                 
                 <div class="trans-info-box" style="text-align: left;">
                     <strong>Wersja gry:</strong> Nintendo 3DS (Wildfire / Thunderflash) <br>
+                    <strong>Postęp tłumaczenia:</strong> [99% brak przetłumaczonych obrazów z tutoriali]<br>
                     <strong>Wymagania:</strong> Emulator Azahar<br>
-                    <strong>Postęp tłumaczenia:</strong> [99% brak przetłumaczonych obrazów z tutoriali]
-					 <strong>Autorzy:</strong> KeRio
+                    <strong>Autorzy:</strong> KeRio
                 </div>
                 
                 <a href="https://www.mediafire.com/file/hgwvtdzh0n0ed5i/Spolszczenie_do_IE_GO_Chrono_Stone_30.11.2025.rar/file" class="download-btn">Pobierz Spolszczenie ⬇</a>
@@ -534,9 +601,9 @@
                 
                 <div class="trans-info-box" style="text-align: left;">
                     <strong>Wersja gry:</strong> Nintendo 3DS (Big Bang / Supernova) JAP<br>
+                    <strong>Postęp tłumaczenia:</strong> [70% Brak przetłumaczonych textur]<br>
                     <strong>Wymagania:</strong> Emulator Azahar<br>
-                    <strong>Postęp tłumaczenia:</strong> [70% Brak przetłumaczonych textur]
-					 <strong>Autorzy:</strong> KeRio
+                    <strong>Autorzy:</strong> KeRio
                 </div>
                 
                 <a href="https://www.mediafire.com/file/aw1iuhy7rw3b4ka/Spolszczenie_do_IE_GO_Galaxy_21.08.2024.rar/file" class="download-btn">Pobierz Spolszczenie ⬇</a>
@@ -545,7 +612,7 @@
         <!-- ============================================== -->
 
 
-        <!-- SEKCJA KOMENTARZY DISQUS -->
+        <!-- SEKCJA KOMENTARZY DISQUS (ZARZĄDZANA PRZEZ SKRYPT JS) -->
         <div id="disqus_thread" style="margin-top: 4rem; background: #353b48; color: #ffffff; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);"></div>
         <script>
             var disqus_config = function () {
@@ -587,20 +654,31 @@
             }
 
             // 4. Podświetl odpowiedni element w nawigacji
-            // Jeśli ID sekcji zaczyna się od 'trans-', podświetlamy główny przycisk 'Spolszczenia'
             if (sectionId.startsWith('trans-')) {
                 document.getElementById('nav-translations').classList.add('active');
             } else {
-                // W przeciwnym razie podświetlamy klikniętą zakładkę
                 const activeNav = document.getElementById('nav-' + sectionId);
                 if (activeNav) {
                     activeNav.classList.add('active');
                 }
             }
             
-            // 5. Przewiń stronę na samą górę
+            // 5. WARUNEK: Pokaż sekcję komentarzy TYLKO na Stronie Głównej ('home') i Historii Gier ('history')
+            const disqusBox = document.getElementById('disqus_thread');
+            if (sectionId === 'home' || sectionId === 'history') {
+                disqusBox.style.display = 'block';
+            } else {
+                disqusBox.style.display = 'none';
+            }
+            
+            // 6. Przewiń stronę na samą górę
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+        
+        // Wywołanie startowe przy pierwszym ładowaniu strony, żeby Disqus zachował się poprawnie
+        window.addEventListener('DOMContentLoaded', () => {
+            switchTab('home');
+        });
     </script>
 </body>
 </html>
