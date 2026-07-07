@@ -9,14 +9,14 @@
             --primary-blue: #1e3799;
             --accent-yellow: #f6b93b;
             --text-dark: #2f3640;
-            --bg-light: #f5f6fa;
-            --card-bg: #ffffff;
+            --bg-light: #2f3640; /* Zmienione na kolor stopki */
+            --card-bg: #353b48;  /* Jasniejszy ciemny kolor dla kontrastu kafelków */
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-light);
-            color: var(--text-dark);
+            color: #ffffff; /* Zmienione na biały dla czytelności */
             line-height: 1.6;
             margin: 0;
             padding: 0;
@@ -106,7 +106,7 @@
             border-radius: 10px;
             text-align: center;
             margin-bottom: 2.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .hero-home h2 {
@@ -133,21 +133,21 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
             margin-top: 1.5rem;
         }
 
         .cta-btn:hover {
             background-color: #e1a92a;
             transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
         }
 
         /* ORYGINALNE STYLE ELEMENTÓW STRONY */
         .era-title {
             text-align: center;
             font-size: 2rem;
-            color: var(--primary-blue);
+            color: var(--accent-yellow); /* Zmienione z niebieskiego na żółty dla kontrastu */
             border-bottom: 3px solid var(--accent-yellow);
             display: inline-block;
             margin: 2rem auto;
@@ -168,24 +168,25 @@
         .card {
             background-color: var(--card-bg);
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
             padding: 1.5rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-top: 4px solid var(--primary-blue);
             text-align: left;
+            color: #dcdde1; /* Jasnoszary tekst wewnątrz kafelków */
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.5);
             border-top-color: var(--accent-yellow);
         }
 
         .card h3 {
-            color: var(--primary-blue);
+            color: var(--accent-yellow); /* Zmienione na żółty, by odznaczał się w kafelku */
             margin-top: 0;
             font-size: 1.4rem;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #485460;
             padding-bottom: 0.5rem;
         }
 
@@ -221,7 +222,7 @@
         }
 
         footer {
-            background-color: var(--text-dark);
+            background-color: #1c2430; /* Lekko ciemniejszy odcień stopki dla domknięcia strony */
             color: white;
             text-align: center;
             padding: 1.5rem;
@@ -249,7 +250,7 @@
         <div id="home" class="page-section active">
             <div class="hero-home">
                 <h2>Witamy w świecie błyskawic! ⚡</h2>
-                <p>Inazuma Eleven to kultowa seria gier japońskiego studia Level-5, łącząca w sobie najlepsze cechy klasycznego japońskiego RPG z dynamicznymi i niezwykle widowiskowymi meczami piłki nożnej.</p>
+                <p>Inazuma Eleven to kultowa seria gier japońskiego studia Level-5, łącząca w sobie najlepsze chechy klasycznego japońskiego RPG z dynamicznymi i niezwykle widowiskowymi meczami piłki nożnej.</p>
             </div>
             
             <div class="grid">
@@ -351,9 +352,9 @@
         </div>
 
         <!-- ================================================================= -->
-        <!-- SEKCOJA KOMENTARZY DISQUS (SZARE TŁO, CZARNA CZCIONKA, SHORTNAME: iepl) -->
+        <!-- SEKCOJA KOMENTARZY DISQUS (DOPASOWANA DO TRYBU CIEMNEGO) -->
         <!-- ================================================================= -->
-        <div id="disqus_thread" style="margin-top: 4rem; background: #e9ecef; color: #000000; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></div>
+        <div id="disqus_thread" style="margin-top: 4rem; background: #353b48; color: #ffffff; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);"></div>
         <script>
             var disqus_config = function () {
                 this.page.url = window.location.href;
