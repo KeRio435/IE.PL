@@ -813,6 +813,10 @@
     <script>
         // Funkcja do zmiany zakładek/stron
         function switchTab(sectionId) {
+		    // Zatrzymaj wszystkie filmy YouTube przy zmianie sekcji
+            document.querySelectorAll('iframe').forEach(iframe => {
+            iframe.src = iframe.src;
+            });
             // ZAPISZ wybraną zakładkę w pamięci przeglądarki
             localStorage.setItem('activeTab', sectionId);
 
